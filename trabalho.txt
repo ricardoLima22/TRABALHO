@@ -1,0 +1,28 @@
+use carrocadastro;
+select * from carrocad;
+select * from cliente;
+ 
+ select * from carrocad;
+
+truncate table carrocad;
+
+create database carrocadastro;
+
+create table carrocad(id int auto_increment primary key, marca varchar(150) not null, modelo varchar(150) not null, ano int(4) not null, cor varchar(50) not null, idmontadora int);
+
+create table cliente(id int primary key auto_increment, nomecliente varchar(150) not null,cpf varchar(11) not null, idcarro int);
+
+create table montadora(id int primary key auto_increment, nome varchar(50) not null unique, cnpj varchar(18) not null, telefone varchar (11) not null, endereco varchar(100) not null);
+
+select * from montadora;
+
+truncate montadora;
+
+alter table carrocad
+add constraint Fk_idmontadora
+foreign key(idmontadora) references montadora(id);
+
+alter table cliente
+add constraint Fk_idcarro
+foreign key (idcarro) references carrocad(id);
+
