@@ -11,6 +11,20 @@ package classe;
 public class Carro {
 
     /**
+     * @return the idmontadora
+     */
+    public Montadora getIdmontadora() {
+        return idmontadora;
+    }
+
+    /**
+     * @param idmontadora the idmontadora to set
+     */
+    public void setIdmontadora(Montadora idmontadora) {
+        this.idmontadora = idmontadora;
+    }
+
+    /**
      * @return the cor
      */
     public String getCor() {
@@ -28,7 +42,7 @@ public class Carro {
     private String modelo;
     private int ano;
     private String cor;
-
+    private Montadora idmontadora;
     /**
      * @return the marca
      */

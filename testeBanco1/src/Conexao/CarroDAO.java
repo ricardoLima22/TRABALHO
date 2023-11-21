@@ -126,6 +126,36 @@ public class CarroDAO {
         }
 
     }
+     public List<Cliente> getCliente() {
+        String sql = "select cliente.id as id, nomecliente,cpf, idcarro, marca, modelo FROM cliente INNER JOIN carrocad on cliente.idcarro = carrocad.id";
+
+        try {
+            PreparedStatement stmt = this.conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            List<Cliente> lista = new ArrayList<>();
+
+            while (rs.next()) {
+                Cliente cliente = new Cliente();
+                Carro carro = new Carro();
+
+                cliente.setId(rs.getInt("id"));
+                cliente.setNome(rs.getString("nomecliente"));
+                cliente.setCpf(rs.getString("cpf"));
+                carro.setId(rs.getInt("idcarro"));
+                carro.setMarca(rs.getString("marca"));
+                carro.setModelo(rs.getString("modelo"));
+                cliente.setIdcarro(carro);
+        
+
+                lista.add(cliente);
+            }
+            return lista;
+        } catch (Exception e) {
+                JOptionPane.showConfirmDialog(null, "Erro aq"+e);
+                return null;
+        }
+
+    }
 
    
 

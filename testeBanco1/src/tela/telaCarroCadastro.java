@@ -5,7 +5,10 @@
 package tela;
 
 import Conexao.CarroDAO;
+import Conexao.MontadoraDAO;
 import classe.Carro;
+import classe.Montadora;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,12 +16,23 @@ import javax.swing.JOptionPane;
  * @author ricar
  */
 public class telaCarroCadastro extends javax.swing.JFrame {
+      public void preencherComboCarro(){
+        MontadoraDAO montadoradao = new MontadoraDAO();
+        List<Montadora> lista = montadoradao.getMontadoras();
+        
+        for(Montadora m : lista){
+            comboBoxMarca.addItem(m);
+        }
+        
+    
+    }
 
     /**
      * Creates new form telaCarroCadastro
      */
     public telaCarroCadastro() {
         initComponents();
+        preencherComboCarro();
     }
 
     /**
@@ -31,7 +45,7 @@ public class telaCarroCadastro extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        comboBoxMarca = new javax.swing.JComboBox<>();
+        comboBoxMarca = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         textNovoModelo = new javax.swing.JTextField();
         btSalvar = new javax.swing.JButton();
@@ -59,7 +73,6 @@ public class telaCarroCadastro extends javax.swing.JFrame {
 
         jLabel1.setText("Marca:");
 
-        comboBoxMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01 - Chevrolet", "02 - Fiat", "03 - Volkswagen", "04 - Hyundai", "05 - Toyota", "06 - Jeep", "07 - Renault", "08 - Honda", "09 - Nissan", "10 - Peugeot" }));
         comboBoxMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxMarcaActionPerformed(evt);
@@ -186,7 +199,7 @@ public class telaCarroCadastro extends javax.swing.JFrame {
                         .addGap(9, 9, 9)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboBoxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(comboBoxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -200,7 +213,7 @@ public class telaCarroCadastro extends javax.swing.JFrame {
                                 .addComponent(textId, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btPesquisar)))
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -410,7 +423,7 @@ public class telaCarroCadastro extends javax.swing.JFrame {
     private javax.swing.JButton btExcluir;
     private javax.swing.JButton btPesquisar;
     private javax.swing.JButton btSalvar;
-    private javax.swing.JComboBox<String> comboBoxMarca;
+    private javax.swing.JComboBox comboBoxMarca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
