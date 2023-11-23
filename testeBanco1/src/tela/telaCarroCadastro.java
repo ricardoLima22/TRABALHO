@@ -71,7 +71,7 @@ public class telaCarroCadastro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela de Cadastro");
 
-        jLabel1.setText("Marca:");
+        jLabel1.setText("Montadora:");
 
         comboBoxMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,18 +190,15 @@ public class telaCarroCadastro extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel5)
-                                    .addComponent(jLabel4))
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(textNovoModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textAnoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(textAnoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboBoxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboBoxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
@@ -213,7 +210,7 @@ public class telaCarroCadastro extends javax.swing.JFrame {
                                 .addComponent(textId, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btPesquisar)))
-                .addContainerGap(183, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,12 +323,14 @@ public class telaCarroCadastro extends javax.swing.JFrame {
         int id = Integer.parseInt(textIdPesquisa.getText());
         String marca = comboBoxMarca.getSelectedItem().toString();
         String modelo = textNovoModelo.getText();
+        String cor = textCor.getText();
         int ano = Integer.parseInt(textAnoCarro.getText());
 
         Carro carro = new Carro();
         carro.setId(id);
         carro.setMarca(marca);
         carro.setModelo(modelo);
+        carro.setCor(cor);
         carro.setAno(ano);
 
         CarroDAO carroCad = new CarroDAO();
@@ -340,6 +339,7 @@ public class telaCarroCadastro extends javax.swing.JFrame {
         textIdPesquisa.setText("");
         textNovoModelo.setText("");
         textAnoCarro.setText("");
+        textCor.setText("");
         
         comboBoxMarca.setEnabled(true);
         
@@ -367,11 +367,9 @@ public class telaCarroCadastro extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btExcluirActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void textCorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCorActionPerformed
         // TODO add your handling code here:
-        telarelatorioCarro tela = new telarelatorioCarro();
-        tela.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_textCorActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
@@ -379,9 +377,11 @@ public class telaCarroCadastro extends javax.swing.JFrame {
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void textCorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCorActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textCorActionPerformed
+        telarelatorioCarro tela = new telarelatorioCarro();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments

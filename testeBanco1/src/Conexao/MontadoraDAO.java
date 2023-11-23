@@ -49,16 +49,18 @@ public class MontadoraDAO {
 
     }
 
-    public void editarCliente(Cliente cliente) {
-        String sql = "update cliente set nome =?, idcarro =? where id=?";
+    public void editarMontadora(Montadora montadora) {
+ 
+        String sql = "update montadora set nome=?, cnpj =?, telefone =?, endereco=? where id=?";
 
         try {
             PreparedStatement stmt = this.conn.prepareStatement(sql);
 
-            stmt.setString(1, cliente.getNome());
-            stmt.setInt(2, cliente.getIdcarro().getId());
-            stmt.setInt(3, cliente.getId());
-
+            stmt.setString(1, montadora.getNome());
+            stmt.setString(2, montadora.getCnpj());
+            stmt.setString(3, montadora.getTelefone());
+            stmt.setString(4, montadora.getEndereco());
+         
             stmt.execute();
         } catch (Exception e) {
             System.out.println("erro aqui" + e);
@@ -102,6 +104,32 @@ public class MontadoraDAO {
             return lista;
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, "Erro ao obter montadoras: " + e);
+            return null;
+        }
+    }
+    
+    public Montadora getMontadora(int id) {
+        String sql = "SELECT * FROM montadora WHERE id = ?";
+
+        try {
+            PreparedStatement stmt = this.conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                Montadora montadora = new Montadora();
+                montadora.setId(id);
+                montadora.setNome(rs.getString("nome"));
+                montadora.setCnpj(rs.getString("cnpj"));
+                montadora.setTelefone(rs.getString("telefone"));
+                montadora.setEndereco(rs.getString("endereco"));
+
+                return montadora;
+            } else {
+                return null;
+            }
+        } catch (Exception e) {
             return null;
         }
     }
