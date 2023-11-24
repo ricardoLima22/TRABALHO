@@ -36,6 +36,7 @@ public class telaLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
         setMinimumSize(new java.awt.Dimension(600, 351));
         setName("Login"); // NOI18N
         setPreferredSize(new java.awt.Dimension(600, 351));
@@ -101,10 +102,11 @@ public class telaLogin extends javax.swing.JFrame {
                     .addComponent(textSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btLogar)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
     

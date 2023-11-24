@@ -81,7 +81,7 @@ public class MontadoraDAO {
 
     }
 
-    public List<Montadora> getMontadoras() {
+    public List<Montadora> getMontadora() {
         String sql = "SELECT id, nome, cnpj, telefone, endereco FROM montadora";
 
         try {

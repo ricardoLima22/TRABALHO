@@ -16,15 +16,15 @@ import javax.swing.JOptionPane;
  * @author ricar
  */
 public class telaCarroCadastro extends javax.swing.JFrame {
-      public void preencherComboCarro(){
+
+    public void preencherComboCarro() {
         MontadoraDAO montadoradao = new MontadoraDAO();
-        List<Montadora> lista = montadoradao.getMontadoras();
-        
-        for(Montadora m : lista){
+        List<Montadora> lista = montadoradao.getMontadora();
+
+        for (Montadora m : lista) {
             comboBoxMarca.addItem(m);
         }
-        
-    
+
     }
 
     /**
@@ -66,7 +66,6 @@ public class telaCarroCadastro extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela de Cadastro");
@@ -159,9 +158,6 @@ public class telaCarroCadastro extends javax.swing.JFrame {
         jMenu1.add(jMenuItem2);
 
         jMenuBar2.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar2.add(jMenu2);
 
         setJMenuBar(jMenuBar2);
 
@@ -284,7 +280,7 @@ public class telaCarroCadastro extends javax.swing.JFrame {
         textAnoCarro.setText("");
         textCor.setText("");
         comboBoxMarca.setEnabled(true);
-        
+
         JOptionPane.showMessageDialog(this, "Carro cadastrado com sucesso!");
     }//GEN-LAST:event_btSalvarActionPerformed
 
@@ -297,25 +293,25 @@ public class telaCarroCadastro extends javax.swing.JFrame {
     private void btPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarActionPerformed
         // TODO add your handling code here:
         int idPesquisa = Integer.parseInt(textId.getText());
-        
+
         CarroDAO carroDAO = new CarroDAO();
-        
+
         Carro carro = carroDAO.getCarro(idPesquisa);
-        
+
         if (carro == null) {
             JOptionPane.showMessageDialog(this, "Carro não cadastrado");
-        }else{
+        } else {
             textId.setText(String.valueOf(carro.getId()));
             textIdPesquisa.setText(String.valueOf(carro.getId()));
             comboBoxMarca.setSelectedItem(carro.getMarca());
             textNovoModelo.setText(carro.getModelo());
             textCor.setText(carro.getCor());
             textAnoCarro.setText(String.valueOf(carro.getAno()));
-            
+
             comboBoxMarca.setEnabled(false);
-            
-       }
-        
+
+        }
+
     }//GEN-LAST:event_btPesquisarActionPerformed
 
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
@@ -340,31 +336,31 @@ public class telaCarroCadastro extends javax.swing.JFrame {
         textNovoModelo.setText("");
         textAnoCarro.setText("");
         textCor.setText("");
-        
+
         comboBoxMarca.setEnabled(true);
-        
+
     }//GEN-LAST:event_btEditarActionPerformed
 
     private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
         // TODO add your handling code here:
 
         int id = Integer.parseInt(textId.getText());
-        
+
         CarroDAO carrodao = new CarroDAO();
-        
+
         int opcao = JOptionPane.showConfirmDialog(null, "Você deseja excluir?", "Excluir", JOptionPane.YES_NO_OPTION);
-        
-        if (opcao == JOptionPane.YES_NO_OPTION){
-        carrodao.excluirCarro(id);
-        textIdPesquisa.setText("");
-        textNovoModelo.setText("");
-        textCor.setText("");
-        textAnoCarro.setText("");
-        
-        comboBoxMarca.setEnabled(true);
+
+        if (opcao == JOptionPane.YES_NO_OPTION) {
+            carrodao.excluirCarro(id);
+            textIdPesquisa.setText("");
+            textNovoModelo.setText("");
+            textCor.setText("");
+            textAnoCarro.setText("");
+
+            comboBoxMarca.setEnabled(true);
 
         }
-       
+
     }//GEN-LAST:event_btExcluirActionPerformed
 
     private void textCorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCorActionPerformed
@@ -432,7 +428,6 @@ public class telaCarroCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;

@@ -72,7 +72,7 @@ public class telarelatorioCarro extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Marca", "Modelo", "Cor", "Ano"
+                "ID", "Montadora", "Modelo", "Cor", "Ano"
             }
         ));
         jScrollPane1.setViewportView(tblListaCarro);
